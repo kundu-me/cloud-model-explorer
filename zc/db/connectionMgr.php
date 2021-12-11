@@ -1,10 +1,10 @@
 <?php
 
 	function getConnectionURI($db) {
-		$host = "labspdbg00ah.mathworks.com";
+		$host = "127.0.0.1";
 		$port = "27017";
-		$username = "u123";
-		$password = "u123";
+		$username = "admin";
+		$password = "adminUser123";
 		$connectionURI = "mongodb://". $username . ":" . $password . "@" . $host . ":" . $port . "/" . $db;
 		return $connectionURI;
 	}

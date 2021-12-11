@@ -1,0 +1,21 @@
+EC2:
+
+#!/bin/bash
+yum update -y
+yum install -y httpd
+systemctl start httpd
+systemctl enable httpd
+usermod -a -G apache ec2-user
+chown -R ec2-user:apache /var/www
+chmod 2775 /var/www
+find /var/www -type d -exec chmod 2775 {} \;
+find /var/www -type f -exec chmod 0664 {} \;
+echo “<h1>Welcome, Nirmallya Kundu</h1>” > /var/www/html/index.html
+
+
+scp -i Kundu-Me-project.pem -r github/cloud-model-explorer/zc ec2-user@ec2-54-172-192-72.compute-1.amazonaws.com:/var/www/html/kundu-me/systemcomposer
+
+
+https://medium.com/@calvin.hsieh/steps-to-install-mongodb-on-aws-ec2-instance-62db66981218
+
+https://www.mouritech.com/blog/install-run-mongodb-in-amazon-ec2-and-run-shell-commands-on-ec2-from-a-lambda-function/
