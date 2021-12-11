@@ -1,0 +1,109 @@
+html {
+  height: 100%;
+}
+
+html body {
+  height: 100%;
+  overflow: hidden;
+}
+
+html body .container-fluid.body-content {
+  position: absolute;
+  top: 490px;
+  bottom: 30px;
+  right: 0;
+  left: 10px;
+  overflow-y: auto;
+}
+
+header {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    background-color: #004073;
+    height: 80px;
+}
+
+footer {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #004073;
+    height: 30px;
+}
+
+.zc-header-logo {
+	border: 1px solid #004073;
+}
+
+.zc-header-text {
+	color: white;
+}
+
+.zc-footer-text {
+	color: white;
+	text-align: center;
+	margin-top: 5px;
+}
+
+.zc-model-selector {
+	position: absolute;
+    left: 0;
+    right: 0;
+    top: 95px;
+    height: 55px;
+	background-color: #e6e6e6;
+}
+
+.zc-model-selector .row {
+	margin: 10px;
+}
+
+.zc-model-selector-query {
+	position: absolute;
+    left: 0;
+    right: 0;
+    top: 160px;
+    height: 90px;
+	background-color: #e6e6e6;
+}
+
+.zc-model-selector-query .row {
+	margin: 10px;
+}
+
+.zc-model-selector-result-json {
+	position: absolute;
+    left: 0;
+    right: 0;
+    top: 260px;
+    height: 170px;
+	background-color: #e6e6e6;
+}
+
+.zc-model-selector-result-json .row {
+	margin: 10px;
+}
+
+.zc-model-selector-result-table {
+	position: absolute;
+    left: 0;
+    right: 0;
+    top: 440px;
+    height: 40px;
+	background-color: #e6e6e6;
+}
+
+.zc-model-selector-result-table .row {
+	margin: 10px;
+}
+
+.zc-header-flex-container {
+  display: flex;
+}
+
+.zc-label-code {
+	font-family: monospace;
+}
