@@ -1,30 +1,32 @@
-import connectionMgr
+import time
+from connectionMgr import getDB
 
-def getModel(name):
-    conn = connectionMgr.getConnection()
-    db = conn.systemcomposer_database
-    systemcomposer_models = db['systemcomposer_models']
+def getModel(name, type):
+    systemcomposer_models = getDB()
 
     #Find a document
-    query = {'name': name}
-    model = systemcomposer_models.find_one(query)
-    print(model)
-    return model
+    data = ''
+    query = {"name": name}
+    cursor = systemcomposer_models.find(query).limit(1)
+    for document in cursor:
+        data = document[type]
+    return data
 
 def getModels():
-    conn = connectionMgr.getConnection()
-    db = conn.systemcomposer_database
-    systemcomposer_models = db['systemcomposer_models']
-
+    systemcomposer_models = getDB()
     #Get all document
+    models = []
     cursor = systemcomposer_models.find({})
     for document in cursor:
-          print(document)
+        name = document['name']
+        models.append(name)
+    return models
 
-def setModel(model):
-    conn = connectionMgr.getConnection()
-    db = conn.systemcomposer_database
-    systemcomposer_models = db['systemcomposer_models']
+def setModel(name, components, ports, connections, portInterfaces, requirementLinks):
+    systemcomposer_models = getDB()
 
-    #Insert a document
-    model = systemcomposer_models.insert_one(model)
+    #Insert a Document
+    id = round(time.time() * 1000);
+    model = {"_id_": id, "name": name, "components": components, "ports": ports, "connections": connections, "portInterfaces": portInterfaces, "requirementLinks": requirementLinks} 
+    systemcomposer_models.insert_one(model)
+    return model

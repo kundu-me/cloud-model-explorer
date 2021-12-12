@@ -11,21 +11,25 @@ function getModels() {
 
 	$("#zc-sel-model").append(new Option("Select Model", "<null>"));
 	$.ajax({
-		url: "/zc/api/get/models/",
+		url: "/kundu-me/systemcomposer/cloud-model-explorer-main-1/zc/api/get/models/",
 		type: 'GET',
 		data: "",
 		success: function(result) {
 		  //called when successful
-		  if(result && result.success && result.data) {
-			let models = result.data;
-			models.forEach(function(model) {
-			  $("#zc-sel-model").append(new Option(model, model));
-			});
+		  console.log(result);
+		  if(result) {
+			let models = result;
+                        for(var index = 0; index <  models.length; index++) {
+                                let model = models[index];
+                                $("#zc-sel-model").append(new Option(model, model));
+                        };
+
 		  }
 		},
 		error: function(e) {
 		  //called when there is an error
 		  console.log(e);
+
 		}
 	});
 }
@@ -39,18 +43,20 @@ function getQuery() {
 	$("#zc-label-query-type").text(type);
 
 	$.ajax({
-		url: "/zc/api/get/model/",
+		url: "/kundu-me/systemcomposer/cloud-model-explorer-main-1/zc/api/get/model/",
 		type: 'GET',
 		data: "name=" + name + "&type=" + type,
 		success: function(result) {
+		  console.log(result);
 		  //called when successful
-		  if(result && result.success && result.data) {
-			var queryResult = result.data;
-			$("#zc-textarea-result").val(JSON.stringify(queryResult));
+		  if(result) {
+			var queryResult = result;
+			$("#zc-textarea-result").val(queryResult);
 
 			$('#zc-table-result > thead').empty();
 			$('#zc-table-result > tbody').empty();
 
+			  /*
 			let isHeader = false;
 			let headerKey = [];
 			queryResult.forEach(function(row) {
@@ -73,7 +79,7 @@ function getQuery() {
 			  });
 			  tbodyRow += "</tr>";
 			  tbody.append(tbodyRow);
-			});
+			});*/
 		  }
 		},
 		error: function(e) {

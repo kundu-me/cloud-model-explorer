@@ -94,7 +94,7 @@
 		<footer>
 			<div class="row">
 				<div class="col-sm-12">
-					<h3 class="zc-footer-text">Copyright &copy; 2020 (A Hackathon Project by Nirmallya Kundu)</h3>
+					<h3 class="zc-footer-text">Copyright &copy; 2021 (Project by Nirmallya Kundu)</h3>
 				</div>
 			</div>
 		</footer>
