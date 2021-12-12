@@ -1,7 +1,7 @@
 function model = importModelFromCloud(name, url)
     %   Copyright 2020 The MathWorks, Inc.
     % url = ['http://172.21.73.62/zc/api/get/model/?name=', name];
-    apiURL = [url '/zc/api/get/model/?name=', name];
+    apiURL = [url '/api/get/model/?name=', name];
     options = weboptions();
     Body = struct();
     response = webwrite(apiURL, Body, options);
